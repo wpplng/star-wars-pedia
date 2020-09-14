@@ -12,11 +12,14 @@ export const getFilms = async (key, page) => {
 	return get(`films/?page=${page}`);
 };
 
+export const getFilm = async (key, id) => {
+	return get(`film/${id}`);
+};
+
 export const getPeople = async (key, page) => {
 	return get(`people/?page=${page}`);
 };
 
-// gör detta för alla sen
 export const getPerson = async (key, id) => {
 	return get(`people/${id}`);
 };
@@ -47,4 +50,8 @@ export const getSpeciesDetails = async (key, id) => {
 
 export const getVehicles = async (key, page) => {
 	return get(`vehicles/?page=${page}`);
+};
+
+export const getVehicle = async (key, id) => {
+	return get(`vehicles/${id}`);
 };
