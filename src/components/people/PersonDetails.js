@@ -59,6 +59,15 @@ const PersonDetails = () => {
 
 					<dt className='col-sm-3'>Mass</dt>
 					<dd className='col-sm-9'>{data.mass} kg</dd>
+
+					<dt className='col-sm-3'>Hair color</dt>
+					<dd className='col-sm-9'>{data.hair_color}</dd>
+
+					<dt className='col-sm-3'>Skin color</dt>
+					<dd className='col-sm-9'>{data.skin_color}</dd>
+
+					<dt className='col-sm-3'>Eye color</dt>
+					<dd className='col-sm-9'>{data.eye_color}</dd>
 				</dl>
 
 				<button
