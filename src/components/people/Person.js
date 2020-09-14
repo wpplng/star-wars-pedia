@@ -1,32 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getIdFromUrl } from '../../helpers';
 
 const Person = ({ person }) => {
-	const [endpoint, id] = person.url
-		.replace('http://swapi.dev/api/', '')
-		.slice(0, -1)
-		.split('/');
-
-	// return (
-	// 	<>
-	// 		<Link to={id} state={{ person }}>
-	// 			{' '}
-	// 			<h5 className='mb-1'>{person.name}</h5>
-	//
-
-	// 		<li className='mb-1'>
-	// 			<strong>Gender:</strong> {person.gender}
-	// 		</li>
-	// 	</>
-	// );
+	const personId = getIdFromUrl(person.url);
 
 	return (
 		<div className='card mb-3'>
-			<Link to={id} state={{ person }}>
-				<div className='card-body mb-1'>
-					<h5 className='card-title'>{person.name}</h5>
-				</div>
-			</Link>
+			<div className='card-body mb-1'>
+				<h5 className='card-title'>
+					<Link to={personId} state={{ person }}>
+						{person.name}
+					</Link>
+				</h5>
+			</div>
 
 			<ul className='list-group list-group-flush'>
 				<li className='list-group-item'>
