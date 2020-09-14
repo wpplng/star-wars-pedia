@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { usePaginatedQuery } from 'react-query';
+import { useUrlSearchParams } from 'use-url-search-params';
 import MoonLoader from 'react-spinners/MoonLoader';
 import { getPeople } from '../../services/SWAPI';
 import Person from './Person';
 
 const People = () => {
-	const [page, setPage] = useState(1);
+	const [searchParams, setSearchParams] = useUrlSearchParams(
+		{ page: 1 },
+		{ page: Number }
+	);
 
 	const { resolvedData, latestData, isLoading, error } = usePaginatedQuery(
-		['people', page],
+		['people', searchParams.page],
 		getPeople
 	);
 
@@ -33,18 +37,17 @@ const People = () => {
 	return (
 		<>
 			<h2>People</h2>
-			<h3>Page {page}</h3>
+			<h3>Page {searchParams.page}</h3>
 
 			<p>There are {resolvedData.count} people in the database.</p>
 
 			<div className='d-flex mb-3 justify-content-between'>
 				<button
 					onClick={() =>
-						setPage((prevPage) =>
-							!latestData || !latestData.previous
-								? prevPage
-								: prevPage - 1
-						)
+						setSearchParams({
+							...searchParams,
+							page: searchParams.page - 1,
+						})
 					}
 					disabled={!latestData || !latestData.previous}
 					className='btn btn-outline-secondary'
@@ -54,11 +57,10 @@ const People = () => {
 
 				<button
 					onClick={() =>
-						setPage((prevPage) =>
-							!latestData || !latestData.next
-								? prevPage
-								: prevPage + 1
-						)
+						setSearchParams({
+							...searchParams,
+							page: searchParams.page + 1,
+						})
 					}
 					disabled={!latestData || !latestData.next}
 					className='btn btn-outline-secondary'
