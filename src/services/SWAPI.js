@@ -13,7 +13,7 @@ export const getFilms = async (key, page) => {
 };
 
 export const getFilm = async (key, id) => {
-	return get(`film/${id}`);
+	return get(`films/${id}`);
 };
 
 export const getPeople = async (key, page) => {

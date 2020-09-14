@@ -6,7 +6,6 @@ import Film from './Film';
 
 const Films = () => {
 	const [page, setPage] = useState(1);
-
 	const { resolvedData, latestData, isLoading, error } = usePaginatedQuery(
 		['films', page],
 		getFilms
@@ -67,13 +66,13 @@ const Films = () => {
 				</button>
 			</div>
 
-			<ul className='list-group'>
+			<div className='row'>
 				{resolvedData.results.map((film, index) => (
-					<li className='list-group-item' key={index}>
+					<div className='col-lg-3 col-md-4 col-sm-6' key={index}>
 						<Film film={film} />
-					</li>
+					</div>
 				))}
-			</ul>
+			</div>
 		</>
 	);
 };

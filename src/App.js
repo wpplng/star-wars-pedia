@@ -9,6 +9,7 @@ import Planets from './components/planets/Planets';
 import Vehicles from './components/vehicles/Vehicles';
 import { Routes, Route } from 'react-router-dom';
 import Films from './components/films/Films';
+import FilmDetails from './components/films/FilmDetails';
 import People from './components/people/People';
 import Species from './components/species/Species';
 import Starships from './components/starships/Starships';
@@ -29,7 +30,13 @@ function App() {
 						<Home />
 					</Route>
 					<Route path='/films'>
-						<Films />
+						<Route path='/'>
+							<Films />
+						</Route>
+
+						<Route path='/:filmId'>
+							<FilmDetails />
+						</Route>
 					</Route>
 					{/* <Route path='/people'>
 						<People />
