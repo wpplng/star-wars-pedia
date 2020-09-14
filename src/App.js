@@ -19,9 +19,9 @@ function App() {
 	return (
 		<ReactQueryConfigProvider config={config.reactQueryConfig}>
 			<Navbar />
-			<GlobalFetchingSpinner />
 
-			<div className='App container py-3'>
+			<div id='App' className='App container py-3'>
+				<GlobalFetchingSpinner />
 				{/* Router version 6 */}
 				<Routes>
 					<Route path='/'>

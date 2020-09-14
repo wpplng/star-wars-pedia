@@ -67,13 +67,13 @@ const People = () => {
 				</button>
 			</div>
 
-			<ul className='list-group'>
+			<div className='row'>
 				{resolvedData.results.map((person, index) => (
-					<li className='list-group-item' key={index}>
+					<div className='col-lg-3 col-md-4 col-sm-6' key={index}>
 						<Person person={person} />
-					</li>
+					</div>
 				))}
-			</ul>
+			</div>
 		</>
 	);
 };

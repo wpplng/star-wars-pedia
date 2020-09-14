@@ -6,7 +6,7 @@ import { getPeople } from '../../services/SWAPI';
 const PersonDetails = () => {
 	const location = useLocation();
 	const person = location.state;
-	// const params = useParams();
+	const { personId } = useParams();
 	// const id = params.person;
 
 	// console.log('location', location);
