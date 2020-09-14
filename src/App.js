@@ -14,6 +14,7 @@ import Species from './components/species/Species';
 import Starships from './components/starships/Starships';
 import PersonDetails from './components/people/PersonDetails';
 import Home from './components/Home';
+import NotFound from './components/NotFound';
 
 function App() {
 	return (
@@ -53,6 +54,8 @@ function App() {
 					<Route path='/vehicles'>
 						<Vehicles />
 					</Route>
+
+					<Route path='*' element={<NotFound />} />
 				</Routes>
 			</div>
 			<ReactQueryDevtools initialIsOpen position='bottom-right' />
