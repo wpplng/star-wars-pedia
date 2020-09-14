@@ -9,9 +9,8 @@ const Person = ({ person }) => {
 		<div className='card mb-3'>
 			<div className='card-body mb-1'>
 				<h5 className='card-title'>
-					<Link to={personId} state={{ person }}>
-						{person.name}
-					</Link>
+					{/* <Link to={personId} state={{ person }}> */}
+					<Link to={personId}>{person.name}</Link>
 				</h5>
 			</div>
 
